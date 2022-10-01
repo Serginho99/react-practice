@@ -4,8 +4,24 @@ import { useState } from 'react';
 const css = {};
 
 export default function Faq() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState('');
   const [visibleAll, setVisibleAll] = useState(false);
+
+  function expandAll() {
+    if (visibleAll) {
+      return;
+    }
+    setVisibleAll(true);
+  }
+
+  function collapseAll() {
+    if (visibleAll) {
+      setVisibleAll(false);
+    }
+    if (visible) {
+      setVisible('');
+    }
+  }
 
   function handleClick(e) {
     setVisible(e.target.id);
@@ -19,7 +35,7 @@ export default function Faq() {
           type="button"
           className={css?.btn}
           id="expand-all"
-          onClick={() => setVisibleAll(true)}
+          onClick={expandAll}
         >
           Expand All
         </button>
@@ -27,10 +43,7 @@ export default function Faq() {
           type="button"
           className={css?.btn}
           id="collapse-all"
-          onClick={() => {
-            setVisibleAll(false);
-            setVisible('');
-          }}
+          onClick={collapseAll}
         >
           Collapse All
         </button>
