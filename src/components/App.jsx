@@ -1,5 +1,6 @@
 import Accordion from './Accordion/Accordion';
 import Faq from './Faq/Faq';
+import Form from './Form/Form';
 import MovieList from './MovieList/MovieList';
 
 export const App = () => {
@@ -7,7 +8,8 @@ export const App = () => {
     <div>
       {/* <Accordion /> */}
       {/* <Faq /> */}
-      <MovieList />
+      {/* <MovieList /> */}
+      <Form />
     </div>
   );
 };
